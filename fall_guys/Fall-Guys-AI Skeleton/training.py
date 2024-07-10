@@ -17,7 +17,7 @@ def run():
     dls = ImageDataLoaders.from_path_func(path, fnames, label_func, item_tfms=Resize(224), bs=64, num_workers=4)
     
     # Initialize a CNN learner using resnet18 and error_rate as the evaluation metric
-    learn = cnn_learner(dls, resnet18, metrics=error_rate)
+    learn = vision_learner(dls, resnet18, metrics=error_rate)
     
     # Fine-tune the model
     learn.fine_tune(4)  # You can adjust the number of epochs and learning rate if necessary

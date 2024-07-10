@@ -30,7 +30,14 @@ keyboard.press('w')
 try:
     while True:
         # Capture game screen
-        image = grab_screen(region=(50, 100, 799, 449))
+        image = grab_screen(region=(0, 0, 1920, 1080))
+        
+        # Convert to grayscale
+        image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+        # Apply Canny edge detection
+        image = cv2.Canny(image, threshold1=119, threshold2=250)
+        # Resize image
+        image = cv2.resize(image, (224, 224))
         
         # Get model prediction
         result = learn_inf.predict(image)
@@ -38,10 +45,10 @@ try:
         
         # Implement action based on model prediction
         if action == 'jump':
-            keyboard.press('space')  # Example: Press space to jump
+            keyboard.press('SPACE')  # Example: Press space to jump
             time.sleep(sleepy)
-            keyboard.release('space')
-        elif action == 'left':
+            keyboard.release('SPACE')
+        elif action == 'LEFT':
             keyboard.press('a')  # Example: Press 'a' to move left
             time.sleep(sleepy)
             keyboard.release('a')

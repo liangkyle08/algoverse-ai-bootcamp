@@ -2,18 +2,16 @@ import cv2
 import numpy as np
 from pathlib import Path
 
+# Load data
 data = np.load("C:/Users/liang/OneDrive/Documents/GitHub/algoverse-ai-bootcamp/fall_guys/Fall-Guys-AI Skeleton/data/training_data.npy", allow_pickle=True)
 targets = np.load("C:/Users/liang/OneDrive/Documents/GitHub/algoverse-ai-bootcamp/fall_guys/Fall-Guys-AI Skeleton/data/target_data.npy", allow_pickle=True)
 
 print(f'Image Data Shape: {data.shape}')
 print(f'targets Shape: {targets.shape}')
 
-# Lets see how many of each type of move we have.
+# Check the distribution of actions
 unique_elements, counts = np.unique(targets, return_counts=True)
 print(np.asarray((unique_elements, counts)))
-
-# Store both data and targets in a list.
-# We may want to shuffle down the road.
 
 # Pair image data with targets and store in a list
 holder_list = [[data[i], targets[i]] for i in range(len(data))]
@@ -33,35 +31,33 @@ save_path = Path("C:/Users/liang/OneDrive/Documents/GitHub/algoverse-ai-bootcamp
 (save_path / 'right').mkdir(parents=True, exist_ok=True)
 (save_path / 'jump').mkdir(parents=True, exist_ok=True)
 
-# Ensure the save path exists
-(save_path / 'up').mkdir(parents=True, exist_ok=True)
-(save_path / 'left').mkdir(parents=True, exist_ok=True)
-(save_path / 'right').mkdir(parents=True, exist_ok=True)
-(save_path / 'jump').mkdir(parents=True, exist_ok=True)
-
-# Define a function to save images with the correct naming convention
+# Function to save images with unique filenames
 def save_image(image, action, count):
     action_map = {'W': 'up', 'A': 'left', 'D': 'right', 'SPACE': 'jump'}
     action_name = action_map.get(action, 'unknown')
     if action_name != 'unknown':
-        filename = save_path / action_name / f"{action_name}_{count}.png"
-        cv2.imwrite(str(filename), image)
-        print(f"Saved {filename}")
+        while True:
+            filename = save_path / action_name / f"{action_name}_{count}.png"
+            if not filename.exists():
+                cv2.imwrite(str(filename), image)
+                print(f"Saved {filename}")
+                break
+            count += 1
 
 # Loop through each image-target pair in holder_list and save images
 for image, action in holder_list:
     if action == 'W':
-        count_up += 1
         save_image(image, action, count_up)
+        count_up += 1
     elif action == 'A':
-        count_left += 1
         save_image(image, action, count_left)
+        count_left += 1
     elif action == 'D':
-        count_right += 1
         save_image(image, action, count_right)
+        count_right += 1
     elif action == 'SPACE':
-        count_jump += 1
         save_image(image, action, count_jump)
+        count_jump += 1
     else:
         print(f"Unknown action: {action}")
 

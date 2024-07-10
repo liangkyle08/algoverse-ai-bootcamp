@@ -14,11 +14,13 @@ def key_check():
         return 'H'
     elif 'B' in keys:
         return 'B'
+    elif 'Q' in keys:
+        return 'Q';
     elif 'A' in keys:
         return 'A'
     elif 'D' in keys:
         return 'D'
     elif ' ' in keys:
-        return ' '
+        return 'SPACE'
     else:
         return 'W'
