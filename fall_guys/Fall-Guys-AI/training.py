@@ -7,7 +7,7 @@ def label_func(x): return x.parent.name
 
 def run():
     # Set the path to the directory containing the training data
-    path = Path("C:/Users/liang/OneDrive/Documents/GitHub/algoverse-ai-bootcamp/fall_guys/Fall-Guys-AI Skeleton/data")
+    path = Path("C:/Users/liang/OneDrive/Documents/GitHub/algoverse-ai-bootcamp/fall_guys/Fall-Guys-AI/data")
     
     # Use get_image_files to retrieve filenames of images in the data directory
     fnames = get_image_files(path)

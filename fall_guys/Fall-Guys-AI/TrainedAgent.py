@@ -12,7 +12,7 @@ from fastai.vision.all import *
 
 def label_func(x):
     return x.parent.name
-learn_inf = load_learner("C:/Users/liang/OneDrive/Documents/GitHub/algoverse-ai-bootcamp/fall_guys/Fall-Guys-AI Skeleton/data/export.pkl");
+learn_inf = load_learner("C:/Users/liang/OneDrive/Documents/GitHub/algoverse-ai-bootcamp/fall_guys/Fall-Guys-AI/data/export.pkl");
 print("loaded learner")
 
 # Sleep time after actions

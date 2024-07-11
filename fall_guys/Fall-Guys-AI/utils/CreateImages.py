@@ -3,8 +3,8 @@ import numpy as np
 from pathlib import Path
 
 # Load data
-data = np.load("C:/Users/liang/OneDrive/Documents/GitHub/algoverse-ai-bootcamp/fall_guys/Fall-Guys-AI Skeleton/data/training_data.npy", allow_pickle=True)
-targets = np.load("C:/Users/liang/OneDrive/Documents/GitHub/algoverse-ai-bootcamp/fall_guys/Fall-Guys-AI Skeleton/data/target_data.npy", allow_pickle=True)
+data = np.load("C:/Users/liang/OneDrive/Documents/GitHub/algoverse-ai-bootcamp/fall_guys/Fall-Guys-AI/data/training_data.npy", allow_pickle=True)
+targets = np.load("C:/Users/liang/OneDrive/Documents/GitHub/algoverse-ai-bootcamp/fall_guys/Fall-Guys-AI/data/target_data.npy", allow_pickle=True)
 
 print(f'Image Data Shape: {data.shape}')
 print(f'targets Shape: {targets.shape}')
@@ -23,7 +23,7 @@ count_right = 0
 count_jump = 0
 
 # Define the path where images will be saved
-save_path = Path("C:/Users/liang/OneDrive/Documents/GitHub/algoverse-ai-bootcamp/fall_guys/Fall-Guys-AI Skeleton/data")
+save_path = Path("C:/Users/liang/OneDrive/Documents/GitHub/algoverse-ai-bootcamp/fall_guys/Fall-Guys-AI/data")
 
 # Ensure the save path exists
 (save_path / 'up').mkdir(parents=True, exist_ok=True)

@@ -7,8 +7,8 @@ from utils.grabscreen import grab_screen
 from utils.getkeys import key_check
 
 # File paths for saving data
-file_name = "C:/Users/liang/OneDrive/Documents/GitHub/algoverse-ai-bootcamp/fall_guys/Fall-Guys-AI Skeleton/data/training_data.npy"
-file_name2 = "C:/Users/liang/OneDrive/Documents/GitHub/algoverse-ai-bootcamp/fall_guys/Fall-Guys-AI Skeleton/data/target_data.npy"
+file_name = "C:/Users/liang/OneDrive/Documents/GitHub/algoverse-ai-bootcamp/fall_guys/Fall-Guys-AI/data/training_data.npy"
+file_name2 = "C:/Users/liang/OneDrive/Documents/GitHub/algoverse-ai-bootcamp/fall_guys/Fall-Guys-AI/data/target_data.npy"
 
 # Function to load existing data or initialize empty lists
 def get_data():
